@@ -1,0 +1,161 @@
+{
+  "conditions": [
+    {
+      "id": 1,
+      "name": "Clear skies with moon illumination under 2%",
+      "category": "Perfect conditions",
+      "suggestion": "Perfect night for astrophotography. Use long exposure for star trails.",
+      "idealCameraSettings": {
+        "shutterSpeed": "15-30 seconds",
+        "aperture": "f/2.8 - f/4",
+        "iso": "800 - 1600"
+      },
+      "bestTime": "After sunset.",
+      "precautions": "Ensure your camera has a stable tripod to avoid shake."
+    },
+    {
+      "id": 2,
+      "name": "Clear skies with moon illumination above 2%",
+      "category": "Moderate conditions",
+      "suggestion": "Clear skies are great for photography, but the moon will wash out faint stars.",
+      "idealCameraSettings": {
+        "shutterSpeed": "15-20 seconds",
+        "aperture": "f/2.8",
+        "iso": "800"
+      },
+      "bestTime": "During the waning phase of the moon.",
+      "precautions": "Use a moon filter to reduce glare. The moon can overpower other celestial objects in your frame."
+    },
+    {
+      "id": 3,
+      "name": "Partly cloudy with moon illumination under 2%",
+      "category": "Moderate conditions",
+      "suggestion": "Good conditions for capturing the stars, though clouds may obscure parts of the sky.",
+      "idealCameraSettings": {
+        "shutterSpeed": "20 seconds",
+        "aperture": "f/2.8",
+        "iso": "1600"
+      },
+      "bestTime": "After sunset.",
+      "precautions": "Monitor the sky for moving clouds that could obscure your view."
+    },
+    {
+      "id": 4,
+      "name": "Partly cloudy with moon illumination above 2%",
+      "category": "Bad conditions",
+      "suggestion": "The moon will be visible, and the clouds may block parts of it. Avoid capturing the moon.",
+      "idealCameraSettings": {
+        "shutterSpeed": "20 seconds",
+        "aperture": "f/2.8",
+        "iso": "1600"
+      },
+      "bestTime": "After sunset",
+      "precautions": "Clouds may obstruct the moon's visibility and affect your shot."
+    },
+    {
+      "id": 5,
+      "name": "Light rain",
+      "category": "Bad conditions",
+      "suggestion": "Not ideal for photography. Wait for clearer weather.",
+      "idealCameraSettings": "Not recommended",
+      "bestTime": "Wait for clear skies",
+      "precautions": "Rain can damage your equipment."
+    },
+    {
+      "id": 6,
+      "name": "Windy with moon illumination under 2%",
+      "category": "Perfect conditions",
+      "suggestion": "Wind may affect the stability of your camera. Use a tripod with a stabilizing weight.",
+      "idealCameraSettings": {
+        "shutterSpeed": "Varies depending on the wind speed",
+        "aperture": "f/2.8",
+        "iso": "1600"
+      },
+      "bestTime": "Wait for a calmer moment or use stabilization equipment",
+      "precautions": "Ensure your tripod is steady and secure."
+    },
+    {
+      "id": 7,
+      "name": "Windy with moon illumination above 2%",
+      "category": "Bad conditions",
+      "suggestion": "The moon will add unwanted brightness to the scene, and the wind could affect your shot.",
+      "idealCameraSettings": {
+        "shutterSpeed": "Varies depending on the wind speed",
+        "aperture": "f/2.8",
+        "iso": "1600"
+      },
+      "bestTime": "Wait for calmer conditions",
+      "precautions": "Stabilize your tripod and avoid capturing the moon if it's too bright."
+    },
+    {
+      "id": 8,
+      "name": "Foggy",
+      "category": "Bad conditions",
+      "suggestion": "Fog may obscure your view of the night sky. Wait for better visibility before setting up your camera.",
+      "idealCameraSettings": {
+        "shutterSpeed": "10-15 seconds",
+        "aperture": "f/4",
+        "iso": "1600"
+      },
+      "bestTime": "Wait for fog to clear",
+      "precautions": "Fog can blur images, especially stars in long exposures."
+    },
+    {
+      "id": 9,
+      "name": "Snow",
+      "category": "Moderate conditions",
+      "suggestion": "Snow can create a beautiful night scene, but be aware of cold temperatures affecting your gear.",
+      "idealCameraSettings": {
+        "shutterSpeed": "15-30 seconds",
+        "aperture": "f/2.8",
+        "iso": "800 - 1600"
+      },
+      "bestTime": "Night after the snowfall",
+      "precautions": "Keep your camera warm and dry. Snow can cause condensation inside the lens."
+    },
+    {
+      "id": 10,
+      "name": "Snow with moon",
+      "category": "Bad conditions",
+      "suggestion": "The snow reflects too much light from the moon, washing out faint stars.",
+      "idealCameraSettings": {
+        "shutterSpeed": "15-20 seconds",
+        "aperture": "f/2.8",
+        "iso": "800"
+      },
+      "bestTime": "During the waning phase of the moon",
+      "precautions": "Use a moon filter and reduce exposure time."
+    },
+    {
+      "id": 11,
+      "name": "Heavy rain",
+      "category": "Bad conditions",
+      "suggestion": "Heavy rain is not suitable for astrophotography. Wait for the rain to stop.",
+      "idealCameraSettings": "Not recommended",
+      "bestTime": "Wait for dry weather",
+      "precautions": "Rain will damage your equipment, so keep it covered and protected."
+    },
+    {
+      "id": 12,
+      "name": "Overcast",
+      "category": "Bad conditions",
+      "suggestion": "Cloud cover may block the stars, but you could still capture a moody sky.",
+      "idealCameraSettings": {
+        "shutterSpeed": "20-30 seconds",
+        "aperture": "f/4",
+        "iso": "1600"
+      },
+      "bestTime": "Night with no moon",
+      "precautions": "Clouds can diffuse light, creating a softer image with less contrast."
+    },
+    {
+      "id": 13,
+      "name": "Thunderstorms",
+      "category": "Bad conditions",
+      "suggestion": "Avoid going out during a thunderstorm for safety. Wait for the storm to pass.",
+      "idealCameraSettings": "Not recommended",
+      "bestTime": "After the storm has passed",
+      "precautions": "Lightning poses a danger to both you and your equipment."
+    }
+  ]
+}

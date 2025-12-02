@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../static/images/favicon.jpg">
+    <title>Night Sky Photography Helper</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Night Sky Photography Helper</h1>
+        <div class="weather-box">
+            <div class="input-container1">
+            <input type="text" id="city" placeholder="Enter city..." />
+            <button class="fas fa-search" onclick="getWeather();"></button>
+        </div>
+
+        
+        <div class="forecast-container-wrapper">
+            <div id="forecast"></div>
+            <div id="moon-data"></div>
+        </div>
+
+        <div id="forecast-multi"></div>
+ 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     
+
+        <div class="tips-container">
+            <h2>Tips for taking photos of the night sky</h2>
+            <div class="button-container">
+                <button class="condition-button" onclick="filterTips('Perfect conditions', this)">Perfect conditions</button>
+                <button class="condition-button" onclick="filterTips('Moderate conditions', this)">Moderate conditions</button>
+                <button class="condition-button" onclick="filterTips('Bad conditions', this)">Bad conditions</button>
+            </div>            
+            <div id="conditionsList"></div>
+        </div> 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        <div class="input-container">
+            <div class="input-section">
+                <h3>Visibility</h3>
+                <input type="text" id="location" name="location"  placeholder="Enter city...">
+                <button onclick="fetchVisibility()">Check visibility</button>
+                <p id="visibilityResult"></p>
+            </div>
+
+            <div class="input-section">
+                <h3>Your Camera</h3>
+                <input type="text" id="cameraModel" placeholder="Enter camera model">
+                <input type="text" id="cameraDetails" placeholder="Enter camera details">
+                <button onclick="saveCamera()">Save your camera</button>
+                <div id="savedCameraResult"></div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-section">
+                <h3>Upcoming night sky events</h3>
+                <button onclick="fetchUpcomingNightSkyEvents()">Check upcoming night sky events</button>
+                <ul id="upcomingNightSkyEvents"></ul>
+            </div>
+
+            <div class="input-section-nightevent">
+                <h3>Night event of the day</h3>
+                <button onclick="fetchNightEvent()">Check night event of the day</button>
+                <p id="nightEventResult"></p>
+            </div>
+        </div>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<div class="year-selection-container">
+    <h3 style="color: darkslategrey;">Select year (default 2014):</h3>
+    <div class="year-buttons">
+        <button onclick="updateChart(2004)">2004</button>
+        <button onclick="updateChart(2005)">2005</button>
+        <button onclick="updateChart(2006)">2006</button>
+        <button onclick="updateChart(2007)">2007</button>
+        <button onclick="updateChart(2008)">2008</button>
+        <button onclick="updateChart(2009)">2009</button>
+        <button onclick="updateChart(2010)">2010</button>
+        <button onclick="updateChart(2011)">2011</button>
+        <button onclick="updateChart(2012)">2012</button>
+        <button onclick="updateChart(2013)">2013</button>
+        <button onclick="updateChart(2014)">2014</button>
+    </div>
+
+
+<canvas id="cloudyChart" width="400" height="200"></canvas>
+</div>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    <div class="year-selection-container">
+        <div id="map" style="width: 100%; height: 600px;"></div>
+    </div>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    </div>
+    </div>
+
+    <script src="../static/map.js"></script>
+    <script src="../static/openData.js"></script>
+    <script  src="../static/scriptRPC.js"></script>
+    <script src="../static/scriptOpenWeather.js"></script>
+    <script src="../static/scriptConditions.js"></script>
+</body>
+
+</html>

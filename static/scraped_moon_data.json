@@ -1,0 +1,44 @@
+{
+    "moon_phase": "Waning Gibbous",
+    "moon_illumination": "98.8%",
+    "moon_image_url": "https://www.timeanddate.com/scripts/moon.php?i=0.988&p=3.848&r=1.018",
+    "moon_rise": "17:07",
+    "moon_set": "08:27",
+    "forecast": [
+        {
+            "date": "2025-01-14",
+            "moonrise": "17:07",
+            "moonset": "08:27"
+        },
+        {
+            "date": "2025-01-15",
+            "moonrise": "18:22",
+            "moonset": "08:57"
+        },
+        {
+            "date": "2025-01-16",
+            "moonrise": "19:35",
+            "moonset": "09:19"
+        },
+        {
+            "date": "2025-01-17",
+            "moonrise": "20:43",
+            "moonset": "09:38"
+        },
+        {
+            "date": "2025-01-18",
+            "moonrise": "21:50",
+            "moonset": "09:54"
+        },
+        {
+            "date": "2025-01-19",
+            "moonrise": "22:54",
+            "moonset": "10:09"
+        },
+        {
+            "date": "2025-01-20",
+            "moonrise": "23:59",
+            "moonset": "10:23"
+        }
+    ]
+}

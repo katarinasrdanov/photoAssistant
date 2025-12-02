@@ -1,0 +1,47 @@
+syntax = "proto3"; 
+
+
+message VisibilityRequest {
+    string location = 1;
+}
+
+message VisibilityResponse {
+    string level = 1; //level of visibility
+}
+
+
+message NightEventRequest {}
+
+message NightEventResponse {
+    string title = 1;
+    string details = 2;
+}
+
+
+message SaveCameraRequest {
+    string model = 1;
+    string details = 2;
+}
+
+message SaveCameraResponse {
+    string model = 1;
+    string details = 2;
+}
+
+
+message UpcomingNightEventsRequest {
+    string period = 1;  //npr naslednjih 7 dni
+}
+
+message UpcomingNightEventsResponse {
+    string date = 1;
+    string event = 2;
+}
+
+
+service NightSkyService {
+    rpc GetVisibility(VisibilityRequest) returns (VisibilityResponse);
+    rpc GetNightEvent(NightEventRequest) returns (NightEventResponse);
+    rpc SaveCamera(SaveCameraRequest) returns (SaveCameraResponse);
+    rpc GetUpcomingNightEventsStream(UpcomingNightEventsRequest) returns (stream UpcomingNightEventsResponse);
+}
