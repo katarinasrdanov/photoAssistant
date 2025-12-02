@@ -4,9 +4,9 @@ body {
     color: white;
     margin: 0;
     padding: 0;
-    background-image: url('images/pozadina.jpg'); 
-    background-size: cover; 
-    background-position: center; 
+    background-image: url('images/pozadina.jpg');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
 }
 
@@ -52,17 +52,17 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 350px;
     background-color: skyblue;
-    height: 300px;
+    height: 310px;
     background-image: url('images/pozadina.jpg');
 }
 
 .forecast-container-wrapper {
     display: flex;
     justify-content: space-around;
-    padding-right: 30%;
-    margin-right: 5%;
+    padding-right: 25%;
+    margin-right: 10%;
 }
 
 .weather-box {
@@ -83,7 +83,7 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-right: 35%;
-    
+
 }
 
 .forecast-day {
@@ -150,7 +150,8 @@ button:hover {
     margin-top: 7%;
     width: 30%;
     padding: 1%;
-    background-color:  #f0f0f0;;
+    background-color: #f0f0f0;
+    ;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: absolute;
@@ -194,7 +195,7 @@ button:hover {
     background-color: skyblue;
     color: white;
     border: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s;
     background-image: url('images/pozadina.jpg');
@@ -205,8 +206,8 @@ button:hover {
 }
 
 .condition-button.selected {
-    border: 5px solid #66BB6A; 
-    background-color: #4CAF50; 
+    border: 5px solid #66BB6A;
+    background-color: #4CAF50;
 }
 
 .condition {
@@ -270,7 +271,7 @@ button:hover {
 }
 
 .input-section {
-    flex: 0 0 40%;
+    flex: 0 0 93%;
     margin-bottom: 20px;
     padding: 20px;
     margin-left: 2%;
@@ -324,14 +325,17 @@ button:hover {
     background-color: #2980b9;
 }
 
-.input-section p, 
+.input-section p,
 .input-section ul {
     color: white;
     font-size: 16px;
     margin-top: 15px;
 }
 
-#visibilityResult, #nightEventResult, #savedCameraResult, #upcomingNightSkyEvents {
+#visibilityResult,
+#nightEventResult,
+#savedCameraResult,
+#upcomingNightSkyEvents {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 8px;
@@ -351,5 +355,35 @@ button:hover {
 
 .year-selection-container button.selected {
     border: 10px solid #66BB6A;
-    background-color: skyblue; 
+    background-color: skyblue;
+}
+
+/* Dark mode styles */
+.dark-mode .weather-box {
+    background-color: #171616 !important;
+    color: #fff !important;
+}
+
+.dark-mode .tips-container {
+    background-color: #313131 !important;
+    color: #fff !important;
+}
+
+.dark-mode .forecast-container1 {
+    background-color: #313131 !important;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode li {
+    color: #e6e6e6 !important;
+}
+
+.dark-mode #city, .dark-mode #location, .dark-mode #visibilityResult, .dark-mode #cameraModel, .dark-mode #cameraDetails, .dark-mode #savedCameraResult, .dark-mode #upcomingNightSkyEvents, .dark-mode #nightEventResult, .dark-mode .year-selection-container {
+    background-color: #313131 !important;
+    color: #e6e6e6 !important;
 }
