@@ -25,7 +25,7 @@ jobs:
 
       - name: Run backend tests with coverage
         working-directory: ./backend
-        run: python -m pytest tests --cov=. --cov-report=html:backend/coverage
+        run: python -m pytest tests --cov=. --cov-report=html:coverage
 
       - name: Upload backend coverage
         uses: actions/upload-artifact@v4
