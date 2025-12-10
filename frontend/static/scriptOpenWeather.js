@@ -1,3 +1,16 @@
+module.exports = {
+  getWeatherByLocation,
+  getForecastByLocation,
+  getWeather,
+  getForecast,
+  renderWeather,
+  renderForecast,
+  getMoonData,
+  renderMoonData,
+  renderMoonForecast,
+  formatDate
+};
+
 function getWeatherByLocation(showAlert = false) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
