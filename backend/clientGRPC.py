@@ -1,6 +1,6 @@
 import grpc
-import nightsky_pb2
-import nightsky_pb2_grpc
+import nightsky_pb2 as nightsky_pb2
+import nightsky_pb2_grpc as nightsky_pb2_grpc
 
 def grpc_client():
     channel = grpc.insecure_channel('localhost:50051') #kanal med clientom in streznikom

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../static/images/favicon.jpg">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.jpg') }}">
     <title>Night Sky Photography Helper</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -103,12 +103,12 @@
     </div>
     </div>
 
-    <script src="../static/map.js"></script>
-    <script src="../static/openData.js"></script>
-    <script  src="../static/scriptRPC.js"></script>
-    <script src="../static/scriptOpenWeather.js"></script>
-    <script src="../static/scriptConditions.js"></script>
-    <script src="../static/darkmode.js"></script>
+    <script src="{{ url_for('static', filename='map.js') }}"></script>
+    <script src="{{ url_for('static', filename='openData.js') }}"></script>
+    <script  src="{{ url_for('static', filename='scriptRPC.js') }}"></script>
+    <script src="{{ url_for('static', filename='scriptOpenWeather.js') }}"></script>
+    <script src="{{ url_for('static', filename='scriptConditions.js') }}"></script>
+    <script src="{{ url_for('static', filename='darkmode.js') }}"></script>
 </body>
 
 </html>
