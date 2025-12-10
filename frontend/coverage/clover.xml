@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1765390233290" clover="3.2.0">
+  <project timestamp="1765390233290" name="All files">
+    <metrics statements="144" coveredstatements="37" conditionals="17" coveredconditionals="6" methods="58" coveredmethods="19" elements="219" coveredelements="62" complexity="0" loc="144" ncloc="144" packages="1" files="6" classes="6"/>
+    <file name="darkmode.js" path="C:\Users\katar\OneDrive - Univerza v Mariboru\feri 3. letnik\TIDS\vaje\photoAssistant\frontend\static\darkmode.js">
+      <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+    </file>
+    <file name="map.js" path="C:\Users\katar\OneDrive - Univerza v Mariboru\feri 3. letnik\TIDS\vaje\photoAssistant\frontend\static\map.js">
+      <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="28" count="0" type="stmt"/>
+    </file>
+    <file name="openData.js" path="C:\Users\katar\OneDrive - Univerza v Mariboru\feri 3. letnik\TIDS\vaje\photoAssistant\frontend\static\openData.js">
+      <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <line num="1" count="0" type="stmt"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="32" count="0" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+    </file>
+    <file name="scriptConditions.js" path="C:\Users\katar\OneDrive - Univerza v Mariboru\feri 3. letnik\TIDS\vaje\photoAssistant\frontend\static\scriptConditions.js">
+      <metrics statements="16" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="38" count="0" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="49" count="0" type="stmt"/>
+      <line num="50" count="0" type="stmt"/>
+    </file>
+    <file name="scriptOpenWeather.js" path="C:\Users\katar\OneDrive - Univerza v Mariboru\feri 3. letnik\TIDS\vaje\photoAssistant\frontend\static\scriptOpenWeather.js">
+      <metrics statements="79" coveredstatements="37" conditionals="11" coveredconditionals="6" methods="36" coveredmethods="19"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="38" count="0" type="stmt"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="50" count="0" type="stmt"/>
+      <line num="51" count="0" type="stmt"/>
+      <line num="53" count="0" type="stmt"/>
+      <line num="54" count="0" type="stmt"/>
+      <line num="55" count="0" type="stmt"/>
+      <line num="57" count="0" type="stmt"/>
+      <line num="58" count="0" type="stmt"/>
+      <line num="62" count="0" type="stmt"/>
+      <line num="63" count="0" type="stmt"/>
+      <line num="67" count="0" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="75" count="1" type="stmt"/>
+      <line num="76" count="1" type="stmt"/>
+      <line num="78" count="0" type="stmt"/>
+      <line num="79" count="0" type="stmt"/>
+      <line num="81" count="1" type="stmt"/>
+      <line num="82" count="1" type="stmt"/>
+      <line num="86" count="2" type="stmt"/>
+      <line num="88" count="2" type="stmt"/>
+      <line num="89" count="2" type="stmt"/>
+      <line num="90" count="2" type="stmt"/>
+      <line num="92" count="0" type="stmt"/>
+      <line num="93" count="0" type="stmt"/>
+      <line num="98" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="99" count="1" type="stmt"/>
+      <line num="101" count="2" type="stmt"/>
+      <line num="125" count="3" type="stmt"/>
+      <line num="127" count="3" type="stmt"/>
+      <line num="128" count="1" type="stmt"/>
+      <line num="142" count="1" type="stmt"/>
+      <line num="145" count="3" type="stmt"/>
+      <line num="146" count="3" type="stmt"/>
+      <line num="152" count="2" type="stmt"/>
+      <line num="153" count="2" type="stmt"/>
+      <line num="154" count="2" type="stmt"/>
+      <line num="156" count="0" type="stmt"/>
+      <line num="157" count="0" type="stmt"/>
+      <line num="162" count="3" type="stmt"/>
+      <line num="178" count="1" type="stmt"/>
+      <line num="179" count="1" type="stmt"/>
+      <line num="182" count="1" type="stmt"/>
+      <line num="184" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="185" count="0" type="stmt"/>
+      <line num="186" count="0" type="stmt"/>
+      <line num="191" count="1" type="stmt"/>
+      <line num="194" count="0" type="stmt"/>
+      <line num="199" count="0" type="stmt"/>
+      <line num="200" count="0" type="stmt"/>
+      <line num="201" count="0" type="stmt"/>
+      <line num="204" count="0" type="stmt"/>
+      <line num="208" count="1" type="stmt"/>
+      <line num="211" count="1" type="stmt"/>
+      <line num="212" count="1" type="stmt"/>
+      <line num="218" count="1" type="stmt"/>
+      <line num="219" count="0" type="stmt"/>
+      <line num="220" count="0" type="stmt"/>
+      <line num="221" count="0" type="stmt"/>
+      <line num="222" count="0" type="stmt"/>
+      <line num="223" count="0" type="stmt"/>
+      <line num="224" count="0" type="stmt"/>
+    </file>
+    <file name="scriptRPC.js" path="C:\Users\katar\OneDrive - Univerza v Mariboru\feri 3. letnik\TIDS\vaje\photoAssistant\frontend\static\scriptRPC.js">
+      <metrics statements="22" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="28" count="0" type="cond" truecount="0" falsecount="4"/>
+      <line num="29" count="0" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="46" count="0" type="stmt"/>
+      <line num="47" count="0" type="stmt"/>
+      <line num="48" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>
