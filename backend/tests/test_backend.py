@@ -1,8 +1,7 @@
 import sys
 sys.path.append(".")
 
-from backend import openWeather
-from datetime import datetime
+import openWeather
 
 # ---------- MOCK RESPONSE ----------
 class MockResponse:
