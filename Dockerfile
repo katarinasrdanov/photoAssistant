@@ -7,10 +7,7 @@ COPY backend/ ./backend
 COPY frontend/ ./frontend
 
 # Namestim runtime dependency-je
-RUN pip install --no-cache-dir \
-    flask \
-    flask-cors \
-    requests
+RUN pip install --no-cache-dir -r backend/requirements.txt
 
 EXPOSE 5000
 
