@@ -1,13 +1,16 @@
 from datetime import datetime
 import requests
-
 import os
-API_KEY = os.getenv("OPENWEATHER_API_KEY")
-if not API_KEY:
-    raise RuntimeError("OPENWEATHER_API_KEY not set")
+
+def get_api_key():
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENWEATHER_API_KEY not set")
+    return api_key
 
 #na osnovi koordinat (geolocation)
 def get_weather_by_coords(lat, lon):
+    API_KEY = get_api_key()
     weather_data = requests.get(
         f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units=metric&APPID={API_KEY}"
     )
@@ -32,6 +35,7 @@ def get_weather_by_coords(lat, lon):
     }
 
 def get_forecast_by_coords(lat, lon):
+    API_KEY = get_api_key()
     forecast_data = requests.get(
         f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&units=metric&APPID={API_KEY}"
     )
@@ -67,6 +71,7 @@ def get_forecast_by_coords(lat, lon):
 
 #na osnovi vnosa
 def get_weather(city):
+    API_KEY = get_api_key()
     weather_data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={API_KEY}")
 
     #print(weather_data.json())
@@ -94,6 +99,7 @@ def get_weather(city):
     }
 
 def get_forecast(city):
+    API_KEY = get_api_key()
     forecast_data = requests.get(
         f"https://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={API_KEY}"
     )

@@ -2,6 +2,11 @@ import sys
 sys.path.append(".")
 
 import openWeather
+import pytest
+
+@pytest.fixture(autouse=True)
+def mock_api_key(monkeypatch):
+    monkeypatch.setenv("OPENWEATHER_API_KEY", "TEST_KEY")
 
 # ---------- MOCK RESPONSE ----------
 class MockResponse:
