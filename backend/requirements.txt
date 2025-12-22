@@ -6,3 +6,5 @@ protobuf
 beautifulsoup4
 pandas
 pyaxis
+dotenv
+os
