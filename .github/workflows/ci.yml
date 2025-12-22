@@ -131,6 +131,7 @@ jobs:
 # ======================================================
   frontend-tests:
     name: Frontend Tests
+    needs: build-frontend  # testiranje se izvede po uspesni gradnji
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

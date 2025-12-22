@@ -1,7 +1,10 @@
 from datetime import datetime
 import requests
 
-API_KEY = "0c367ceb2011d2b0972b7889fc34a483"
+import os
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
+if not API_KEY:
+    raise RuntimeError("OPENWEATHER_API_KEY not set")
 
 #na osnovi koordinat (geolocation)
 def get_weather_by_coords(lat, lon):
