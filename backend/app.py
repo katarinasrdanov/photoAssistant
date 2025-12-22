@@ -1,11 +1,29 @@
+from pathlib import Path
+
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
-from clientGRPC import get_night_event_stub, get_upcoming_night_sky_events_stub, get_visibility_stub, save_camera_stub
+from dotenv import load_dotenv
+load_dotenv()
+
+from clientGRPC import (
+    get_night_event_stub,
+    get_upcoming_night_sky_events_stub,
+    get_visibility_stub,
+    save_camera_stub,
+)
 import openData
 import openWeather
 from moon_scraper import fetch_and_save_data
 
-app = Flask(__name__)
+BASE_DIR = Path(__file__).resolve().parent
+FRONTEND_DIR = BASE_DIR.parent / "frontend"
+
+app = Flask(
+    __name__,
+    template_folder=str(FRONTEND_DIR / "templates"),
+    static_folder=str(FRONTEND_DIR / "static"),
+    static_url_path="/static",
+)
 CORS(app)
 
 @app.route('/')
@@ -97,4 +115,4 @@ def get_data_by_year(year):
 ###############################################################################################################
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)

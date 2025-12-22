@@ -1,12 +1,16 @@
+from pathlib import Path
+
 import pandas as pd
 from pyaxis import pyaxis
 
-FILE = 'static/0156103S.PX' #PCAXIS datoteka
+BASE_DIR = Path(__file__).resolve().parent
+STATIC_DIR = BASE_DIR.parent / "frontend" / "static"
+FILE = STATIC_DIR / "0156103S.PX"  # PCAXIS datoteka
 
 def get_cloudy_days_per_station(year):
     try:
         # Preberem datoteko
-        px = pyaxis.parse(FILE, encoding='ISO-8859-2', lang='en') #podatki so dostopni v 2 jezika - slo in en 
+        px = pyaxis.parse(str(FILE), encoding='ISO-8859-2', lang='en') #podatki so dostopni v 2 jezika - slo in en 
 
         # Prikaz podatkov in metapodatkov
         #print(px['DATA'])

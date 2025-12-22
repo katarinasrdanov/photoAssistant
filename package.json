@@ -3,5 +3,18 @@
     "@grpc/grpc-js": "^1.12.5",
     "@grpc/proto-loader": "^0.7.13",
     "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.0.0"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "coverageDirectory": "frontend/coverage",
+    "collectCoverageFrom": [
+      "frontend/static/**/*.js"
+    ]
   }
 }

@@ -1,0 +1,265 @@
+name: PhotoAssistant CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - production
+  pull_request:
+    branches:
+      - main
+      - production
+
+jobs:
+# ======================================================
+# BACKEND – BUILD
+# ======================================================
+  build-backend:
+    name: Build Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository #kloniranje repozitorija
+        uses: actions/checkout@v4
+
+      - name: Setup Python #namestitev python okolja
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Cache Python dependencies #caching odvisnosti
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('backend/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install backend dependencies #namestitev odvisnosti
+        run: |
+          pip install -r backend/requirements.txt
+
+      - name: Build backend #pri pythonu ni naravnega builda, zato moram ta del narediti ročno
+        run: |
+          mkdir -p build/backend
+          cp -r backend/*.py build/backend/
+          cp backend/requirements.txt build/backend/
+
+      - name: Upload backend build artifacts #naložitev artefaktov za backend
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-build #ime artefakta
+          path: build/backend/
+
+# ======================================================
+# BACKEND – TEST
+# ======================================================
+  backend-tests:
+    name: Backend Tests
+    needs: build-backend  # testiranje se izvede po uspesni gradnji
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository #kloniranje repozitorija
+        uses: actions/checkout@v4
+
+      - name: Setup Python #namestitev python okolja
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Cache Python dependencies #caching odvisnosti
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('backend/requirements.txt') }}
+
+      - name: Install backend dependencies #namestitev odvisnosti
+        working-directory: ./backend
+        run: pip install pytest pytest-cov requests
+
+      - name: Run backend tests with coverage #izvedba testov s pokritostjo
+        working-directory: ./backend
+        run: python -m pytest tests --cov=. --cov-report=html:coverage
+
+      - name: Upload backend coverage #naložitev poročila o pokritosti kode
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage
+          path: backend/coverage
+
+# ======================================================
+# FRONTEND – BUILD
+# ======================================================
+  build-frontend:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4 
+        with:
+          node-version: '18'
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build frontend (static files)
+        run: |
+          mkdir -p dist/frontend
+          cp -r frontend/static dist/frontend/
+          cp -r frontend/templates dist/frontend/
+
+      - name: Upload frontend build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: dist/frontend/
+
+# ======================================================
+# FRONTEND – TEST
+# ======================================================
+  frontend-tests:
+    name: Frontend Tests
+    needs: build-frontend  # testiranje se izvede po uspesni gradnji
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Cache node modules
+        uses: actions/cache@v4 
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-  
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Run frontend tests with coverage
+        working-directory: ./frontend
+        run: npm test -- --coverage --watchAll=false
+
+      - name: Upload frontend coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: frontend/coverage
+
+# ======================================================
+# DOCKER – BUILD & PUSH IMAGE - development
+# ======================================================
+  docker-dev:
+    name: Build and Push Docker Image (Development)
+    runs-on: ubuntu-latest
+    needs: [backend-tests, frontend-tests]
+    if: github.ref == 'refs/heads/main' 
+    environment: Development
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image (development)
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/photoassistant:dev .
+          docker tag ${{ secrets.DOCKER_USERNAME }}/photoassistant:dev \
+                     ${{ secrets.DOCKER_USERNAME }}/photoassistant:${{ github.sha }}
+
+      - name: Push Docker image (development)
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/photoassistant:dev
+          docker push ${{ secrets.DOCKER_USERNAME }}/photoassistant:${{ github.sha }}
+
+# ======================================================
+# DEPLOY – RENDER
+# ======================================================
+  deploy-render:
+    name: Deploy to Render
+    runs-on: ubuntu-latest
+    needs: docker-dev
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy application to Render
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+
+# ======================================================
+# DOCKER – BUILD & PUSH IMAGE - production
+# ======================================================
+  docker-prod:
+    name: Docker Build & Push (Production)
+    needs: [backend-tests, frontend-tests]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/production'
+    environment: Production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image (prod)
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/photoassistant:prod .
+          docker tag ${{ secrets.DOCKER_USERNAME }}/photoassistant:prod \
+                     ${{ secrets.DOCKER_USERNAME }}/photoassistant:${{ github.sha }}
+
+      - name: Push Docker image (prod)
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/photoassistant:prod
+          docker push ${{ secrets.DOCKER_USERNAME }}/photoassistant:${{ github.sha }}
+
+# ======================================================
+# GITHUB PAGES DEPLOY
+# ======================================================
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Pages to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

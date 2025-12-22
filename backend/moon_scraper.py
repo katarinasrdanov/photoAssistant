@@ -1,8 +1,13 @@
+from pathlib import Path
+import json
+import re
+
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-import json
-import re
+
+
+STATIC_DIR = Path(__file__).resolve().parent.parent / "frontend" / "static"
 
 
 def fetch_and_save_data():
@@ -85,7 +90,8 @@ def fetch_and_save_data():
         }
 
         #shranim podatke v json datoteko
-        with open("static/scraped_moon_data.json", "w") as json_file:
+        output_file = STATIC_DIR / "scraped_moon_data.json"
+        with open(output_file, "w") as json_file:
             json.dump(data, json_file, indent=4)
 
         print("Data has been saved to 'scraped_moon_data.json'.")
