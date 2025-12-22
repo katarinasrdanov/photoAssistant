@@ -215,11 +215,30 @@ jobs:
           curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
 
 # ======================================================
+# SONARCLOUD ANALYSIS
+# ======================================================
+  sonarqube:
+    name: SonarQube
+    needs: [backend-tests, frontend-tests]
+    runs-on: ubuntu-latest
+    environment: Development      
+    if: github.ref == 'refs/heads/main' 
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+# ======================================================
 # DOCKER – BUILD & PUSH IMAGE - production
 # ======================================================
   docker-prod:
     name: Docker Build & Push (Production)
-    needs: [backend-tests, frontend-tests]
+    needs: [backend-tests, frontend-tests, sonarqube]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/production'
     environment: Production
@@ -228,6 +247,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check SonarCloud Quality Gate
+        run: |
+          curl -s -u ${{ secrets.SONAR_TOKEN }}: \
+          "https://sonarcloud.io/api/qualitygates/project_status?projectKey=katarinasrdanov_photoAssistant" \
+          | grep -q '"status":"OK"' || exit 1
+   
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
