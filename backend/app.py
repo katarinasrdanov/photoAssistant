@@ -2,6 +2,8 @@ from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
+from dotenv import load_dotenv
+load_dotenv()
 
 from clientGRPC import (
     get_night_event_stub,

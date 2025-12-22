@@ -18,7 +18,7 @@ function getWeatherByLocation(showAlert = false) {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
 
-                fetch(`http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`)
+                fetch(`${window.location.origin}/weather?lat=${lat}&lon=${lon}`)
                     .then(response => response.json()) // Parse JSON format to JS object
                     .then(data => {
                         renderWeather(data);
@@ -50,7 +50,7 @@ function getForecastByLocation() {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
 
-                fetch(`http://127.0.0.1:5000/forecast?lat=${lat}&lon=${lon}`)
+                fetch(`${window.location.origin}/forecast?lat=${lat}&lon=${lon}`)
                     .then(response => response.json())
                     .then(data => renderForecast(data))
                     .catch(error => {
@@ -71,7 +71,7 @@ function getForecastByLocation() {
 function getWeather() {
     const city = document.getElementById('city').value; //iz inputa
 
-    fetch(`http://127.0.0.1:5000/weather/${city}`)
+    fetch(`${window.location.origin}/weather/${city}`)
         .then(response => response.json())
         .then(data => renderWeather(data))
         .catch(error => {
@@ -85,7 +85,7 @@ function getWeather() {
 function getForecast() {
     const city = document.getElementById('city').value;
 
-    fetch(`http://127.0.0.1:5000/forecast/${city}`)
+    fetch(`${window.location.origin}/forecast/${city}`)
         .then(response => response.json())
         .then(data => renderForecast(data))
         .catch(error => {
