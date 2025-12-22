@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir -r backend/requirements.txt
 
 EXPOSE 5000
 
-CMD ["sh", "-c", "python backend/app.py & node backend/serverGRPC.js"]
+CMD ["python", "backend/app.py"]
