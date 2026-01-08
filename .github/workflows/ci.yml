@@ -11,7 +11,7 @@ on:
       - production
 
 jobs:
-# ======================================================
+# ====================================================== 
 # BACKEND – BUILD
 # ======================================================
   build-backend:
@@ -39,7 +39,7 @@ jobs:
         run: |
           pip install -r backend/requirements.txt
 
-      - name: Build backend #pri pythonu ni naravnega builda, zato moram ta del narediti ročno
+      - name: Build backend #pri python-u ni naravnega builda, zato moram ta del narediti ročno
         run: |
           mkdir -p build/backend
           cp -r backend/*.py build/backend/
